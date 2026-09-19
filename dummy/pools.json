@@ -1,0 +1,68 @@
+{
+  "seed_version": 1,
+  "pools": [
+    {
+      "id": "lohre",
+      "name": "Pflegegemeinschaft Lohre",
+      "ort": "Schwalm-Eder, Nord-Hessen",
+      "koordinaten": [51.1, 9.55],
+      "gestartet": "2026-08-01",
+      "bewohner": 22,
+      "team": 13,
+      "ehrenamt": 47,
+      "raeume": {
+        "einzelzimmer": 22,
+        "wohnkuechen": 3,
+        "werkstatt": 1,
+        "bibliothek": 1,
+        "garten": true
+      },
+      "pflegegrade": { "PG2": 6, "PG3": 11, "PG4": 4, "PG5": 1 },
+      "traeger": "Wir in Lohre eG (Bewohner-Genossenschaft)",
+      "pflegedienst": "Lohre ambulant (§ 92c SGB XI)",
+      "beschreibung": "Zwei benachbarte Haeuser in Nord-Hessen. Drei Wohngruppen à sieben bis acht Bewohnern. Gemeinsamer Garten mit Blick auf die Fulda-Auen."
+    },
+    {
+      "id": "kassel-nord",
+      "name": "Kassel-Nord",
+      "ort": "Stadtquartier, Hessen",
+      "koordinaten": [51.33, 9.5],
+      "gestartet": "2026-11-15",
+      "bewohner": 18,
+      "team": 11,
+      "ehrenamt": 32,
+      "raeume": {
+        "einzelzimmer": 18,
+        "wohnkuechen": 2,
+        "werkstatt": 0,
+        "bibliothek": 1,
+        "garten": true
+      },
+      "pflegegrade": { "PG2": 4, "PG3": 9, "PG4": 4, "PG5": 1 },
+      "traeger": "Kollektiv Kassel-Nord e.V.",
+      "pflegedienst": "Ambulanter Dienst Kassel Ost (§ 92c SGB XI)",
+      "beschreibung": "Altbau in einem gruenen Stadtquartier. Anbindung an oeffentliche Verkehrsmittel und Aerzte im Umkreis."
+    },
+    {
+      "id": "melsungen-suedhang",
+      "name": "Melsungen Suedhang",
+      "ort": "Neubau, Schwalm-Eder",
+      "koordinaten": [51.13, 9.55],
+      "gestartet": "2027-04-01",
+      "bewohner": 24,
+      "team": 14,
+      "ehrenamt": 52,
+      "raeume": {
+        "einzelzimmer": 24,
+        "wohnkuechen": 3,
+        "werkstatt": 1,
+        "bibliothek": 1,
+        "garten": true
+      },
+      "pflegegrade": { "PG2": 8, "PG3": 12, "PG4": 3, "PG5": 1 },
+      "traeger": "Melsungen Suedhang eG",
+      "pflegedienst": "Ambulanter Dienst Melsungen (§ 92c SGB XI)",
+      "beschreibung": "Neubau in Melsungen mit Blick nach Sueden. Barrierefrei nach DIN 18040 Teil 2, Photovoltaik auf dem Dach, Waermepumpe."
+    }
+  ]
+}

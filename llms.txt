@@ -1,0 +1,42 @@
+# care
+
+Betriebssystem für Pflege-Pools und gemeinschaftliche Wohnformen. Instanz des Real Life Stack. Landing unter care.wir.ooo.
+
+Getragen vom Kollektiv Lichtung e.V., in Zusammenarbeit mit Bärbel (Vision Gesundheit).
+
+## Was care ist
+
+- Karte mit Pflege-Pools, Räumen, Menschen, Fähigkeiten, Bedarfen
+- Kalender je Ort mit Einsätzen, Terminen, Aktivitäten
+- Rollen-Ring: Bewohner, Angehörige, Pflegekräfte, Therapeuten, Ehrenamt, Träger
+- Fähigkeits-Register je Mensch
+- Bedarfs-Layer als Grundlage fürs Matching
+- Care-Management: Pflegepläne, Einsätze, Doku, Vertretung
+- Pool-Sicht: Räume, Fahrzeuge, Werkzeuge, Menschen
+- Finanzmodul: Budgets, Fördermittel, Spenden, Gemeinschaftstöpfe
+- Begleitung durch einen Companion je Space
+
+## Rechtlicher Rahmen
+
+- § 92c SGB XI (seit 01.01.2026): gemeinschaftliche Wohnformen, Vertrag mit Kostenträgern, 450 Euro pauschal je Bewohner
+- § 38a SGB XI: Wohngruppenzuschlag, 224 Euro pro Person und Monat
+- § 45e SGB XI: Anschubfinanzierung, bis 10.000 Euro pro Gruppe
+- § 36 Abs. 4 SGB XI: Poolen von Pflegeleistungen
+- WTG (Länder-Recht): selbstverantwortete WG bleibt außerhalb der Heim-Aufsicht
+
+## Konzept
+
+- Denkraum: d:/Workspace/30-konzepte/pflege-pool/
+- Repo-Docs: /docs/
+- STAND: d:/Workspace/memory/stand_pflege_pool.md
+
+## Verwandt
+
+- trustdonation: https://trustdonation.org
+- Real Life Stack: https://github.com/real-life-org/real-life-stack
+- Web of Trust: https://github.com/antontranelis/web-of-trust
+- wir.ooo: https://wir.ooo
+
+## Sprache
+
+Deutsch. Klar. Bejahend. Ohne Gedankenstriche, mit echten Umlauten, mit sparsamen Silben.
