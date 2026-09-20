@@ -1,18 +1,22 @@
 # care
 
-**Infrastruktur für gemeinschaftliche Pflege**
+**Ein Entwurf: so könnte ein Pflege-Pool aussehen**
 
-Menschen, die einander im Alter tragen, finden sich auf einer Karte, teilen Räume, Fähigkeiten und Sorge, und teilen den Pflegetopf, der sie versorgt. Getragen vom Kollektiv Lichtung e.V., gebaut auf dem [Real Life Stack][rls], Vertrauen über das [Web of Trust][wot], Vorbild und Geschwister-Instanz: [trustdonation][td].
+Dieses Repo ist eine **Sichtbarmachung**, kein Produkt. Es zeigt, wie sich ein Pflege-Pool nach § 92c SGB XI in Software fassen ließe: sechs Rollen, eine Karte, ein Kalender, ein Marktplatz. Gebaut auf dem [Real Life Stack][rls], Vertrauen über das [Web of Trust][wot], Muster und Geschwister-Instanz: [trustdonation][td].
 
-> care baut eine Betriebsschicht, mit der Pflege-Pools und gemeinschaftliche Wohnformen ihre Menschen, Fähigkeiten, Termine und Mittel sichtbar organisieren. Pflege bleibt am Menschen, Geld bleibt im Ort, Gemeinschaft trägt.
+> **Das Konzept gehört Vision Gesundheit.** Bärbel und ihr Team entwickeln den Pflege-Pool, kennen das Feld, tragen das Risiko und entscheiden. Wir zeigen, was sich damit bauen ließe, damit es etwas Anschauliches gibt, über das man reden kann. Zum Weitergeben, nicht zum Behalten.
 
 | | |
 |---|---|
-| Domain | care.wir.ooo *(Sub-Level unter der wir.ooo-Baustelle)* |
+| Live | <https://care.wir.ooo> |
+| Art | Entwurf zur Übergabe, keine laufende Anwendung |
+| Konzept gehört | Vision Gesundheit (Bärbel und Team) |
+| Gebaut von | Kollektiv Lichtung e.V. |
 | Rechtlicher Rahmen | § 92c SGB XI (seit 01.01.2026), § 38a, § 45e, § 36 Poolen |
-| Konzept | [docs/README.md](docs/README.md) |
-| Ausgangs-Kontakt | Bärbel, Vision Gesundheit |
+| Denkraum | `d:\Workspace\30-konzepte\pflege-pool\` (18 Papiere) |
 | Für Agenten | [AGENTS.md](AGENTS.md), [llms.txt](llms.txt) |
+
+**Alle Menschen in der Demo sind erfunden.** Helga Braun, Sara Nowak, Volker Meister: keine echten Personen, keine echten Daten. Beispiele, damit das Bild trägt.
 
 ---
 

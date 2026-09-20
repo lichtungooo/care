@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>care — Pflege in Gemeinschaft, im eigenen Ort.</title>
-<meta name="description" content="care ist die Betriebsschicht fuer Pflege-Pools und gemeinschaftliche Wohnformen. Karte, Kalender, Rollen, Faehigkeiten, Bedarfe. Offener Quellcode, gemeinnuetzig getragen.">
+<title>care — So könnte ein Pflege-Pool aussehen</title>
+<meta name="description" content="Ein Entwurf für Vision Gesundheit. Sechs Rollen, eine Karte, ein Kalender. Wie sich ein Pflege-Pool nach § 92c SGB XI organisieren lässt. Gebaut auf dem Real Life Stack.">
 <link rel="icon" href="/branding/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/site.css">
 <script>
   try {
-    var w = localStorage.getItem("rls-theme")
+    var w = localStorage.getItem("care-theme")
     if (w === "dark" || w === "light") document.documentElement.dataset.theme = w
   } catch (e) {}
 </script>
@@ -17,9 +17,8 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:url" content="https://care.wir.ooo">
 <meta property="og:site_name" content="care">
-<meta property="og:title" content="care — Pflege in Gemeinschaft, im eigenen Ort.">
-<meta property="og:description" content="Die Betriebsschicht fuer Pflege-Pools und gemeinschaftliche Wohnformen. Getragen vom Kollektiv Lichtung e.V.">
-<meta property="og:image" content="https://care.wir.ooo/og.png">
+<meta property="og:title" content="care — So könnte ein Pflege-Pool aussehen">
+<meta property="og:description" content="Ein Entwurf für Vision Gesundheit. Sechs Rollen, eine Karte, ein Kalender.">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -27,14 +26,9 @@
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol viewBox="0 0 150 150" id="signet">
-      <path style="fill:var(--gruen,#8B6F47)" d="M 68 8 A 67 67 0 0 0 68 142 L 68 99 A 24 24 0 0 1 68 51 Z"></path>
-      <path style="fill:var(--gold,#5F8480)" d="M 82 8 A 67 67 0 0 1 82 142 L 82 99 A 24 24 0 0 0 82 51 Z"></path>
-      <circle style="fill:var(--gold,#5F8480)" cx="75" cy="75" r="14"></circle>
-    </symbol>
-    <symbol viewBox="0 0 24 24" id="i-haus" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 9-8 9 8"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></symbol>
+    <symbol viewBox="0 0 150 150" id="signet"><path style="fill:var(--gruen,#4A6B5A)" d="M 68 8 A 67 67 0 0 0 68 142 L 68 99 A 24 24 0 0 1 68 51 Z"></path><path style="fill:var(--gold,#C08B5C)" d="M 82 8 A 67 67 0 0 1 82 142 L 82 99 A 24 24 0 0 0 82 51 Z"></path><circle style="fill:var(--gold,#C08B5C)" cx="75" cy="75" r="14"></circle></symbol>
     <symbol viewBox="0 0 24 24" id="i-bewohner" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-6 8-6s8 2 8 6"></path></symbol>
-    <symbol viewBox="0 0 24 24" id="i-angehoerige" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="i-familie" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-pflege" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v8M8 12h8"></path><rect x="3" y="3" width="18" height="18" rx="3"></rect></symbol>
     <symbol viewBox="0 0 24 24" id="i-therapie" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-ehrenamt" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12V5.5a1.5 1.5 0 0 1 3 0V12"></path><path d="M14 11V4.5a1.5 1.5 0 0 1 3 0V12"></path><path d="M17 11.5a1.5 1.5 0 0 1 3 0V15a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.5L3.6 14A1.6 1.6 0 0 1 6 12.4l2 2.6V7.5a1.5 1.5 0 0 1 3 0"></path></symbol>
@@ -42,10 +36,13 @@
     <symbol viewBox="0 0 24 24" id="i-karte" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"></path><path d="M9 4v14M15 6v14"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-kalender" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-markt" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-2 11H5z"></path><path d="M8 9V6a4 4 0 0 1 8 0v3"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="i-doku" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M9 13h6M9 17h4"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="i-geld" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M15 9.5a3.5 3.5 0 0 0-6 2.5 3.5 3.5 0 0 0 6 2.5M8 11h5M8 13h5"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-kreis" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"></path><path d="M21 4v5h-5"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-git" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-info" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></symbol>
-    <symbol viewBox="0 0 24 24" id="i-check" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="i-companion" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M8 10h.01M12 10h.01M16 10h.01"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="i-recht" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7h14M7 7l-3 7h6zM17 7l-3 7h6z"></path></symbol>
     <symbol viewBox="0 0 24 24" id="i-caret" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></symbol>
   </defs>
 </svg>
@@ -54,330 +51,404 @@
   <div class="wrap nav-inner">
     <a class="brand" href="/" aria-label="care">c<svg class="signet" aria-hidden="true"><use href="#signet"></use></svg>re</a>
     <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#rollen">Rollen</a>
+      <div class="has-menu" data-open="false">
+        <button type="button" aria-expanded="false" aria-controls="menu-rollen"><span>Sechs Rollen</span> <svg class="caret"><use href="#i-caret"></use></svg></button>
+        <div class="menu wide" id="menu-rollen">
+          <div>
+            <div class="group">Im Haus</div>
+            <a href="#bewohner"><span class="ic"><svg><use href="#i-bewohner"></use></svg></span><div><b>Bewohner</b><span>Menschen mit Geschichte, Fähigkeiten und eigenem Rhythmus.</span></div></a>
+            <a href="#familie"><span class="ic"><svg><use href="#i-familie"></use></svg></span><div><b>Angehörige</b><span>Mittragen aus der Nähe und aus der Ferne.</span></div></a>
+            <a href="#pflege"><span class="ic"><svg><use href="#i-pflege"></use></svg></span><div><b>Pflege</b><span>Fachkräfte, Hilfskräfte, Alltagsbegleitung.</span></div></a>
+          </div>
+          <div>
+            <div class="group">Von außen</div>
+            <a href="#therapie"><span class="ic"><svg><use href="#i-therapie"></use></svg></span><div><b>Therapie und Medizin</b><span>Ärzte, Physio, Ergo, Logo. Sprechstunde im Pool.</span></div></a>
+            <a href="#ehrenamt"><span class="ic"><svg><use href="#i-ehrenamt"></use></svg></span><div><b>Ehrenamt und Nachbarn</b><span>Fahrten, Besuche, Handwerk, Musik.</span></div></a>
+            <a href="#traeger"><span class="ic"><svg><use href="#i-traeger"></use></svg></span><div><b>Träger</b><span>Genossenschaft, Verein, Kommune. Hält die Struktur.</span></div></a>
+          </div>
+        </div>
+      </div>
       <a href="/kreislauf/">Kreislauf</a>
-      <a href="#karte">Karte</a>
-      <a href="#geld">Geld</a>
-      <a href="#partner">Partner</a>
-      <a href="/recht/">Recht</a>
+      <div class="has-menu" data-open="false">
+        <button type="button" aria-expanded="false" aria-controls="menu-mehr"><span>Wie es liefe</span> <svg class="caret"><use href="#i-caret"></use></svg></button>
+        <div class="menu wide" id="menu-mehr">
+          <div>
+            <div class="group">Der Entwurf</div>
+            <a href="/demo/"><span class="ic"><svg><use href="#i-karte"></use></svg></span><div><b>Demo öffnen</b><span>Ein Beispiel-Pool mit Menschen, Karte und Woche.</span></div></a>
+            <a href="#module"><span class="ic"><svg><use href="#i-doku"></use></svg></span><div><b>Module</b><span>Welche Bausteine ein Pool braucht.</span></div></a>
+            <a href="#geld"><span class="ic"><svg><use href="#i-geld"></use></svg></span><div><b>Wie das Geld fließt</b><span>§ 92c, § 38a, § 45e und das Poolen von Leistungen.</span></div></a>
+            <a href="#companion"><span class="ic"><svg><use href="#i-companion"></use></svg></span><div><b>Begleitung</b><span>Wie eine AI im Alltag trägt, ohne Hände zu ersetzen.</span></div></a>
+          </div>
+          <div>
+            <div class="group">Dahinter</div>
+            <a href="https://github.com/real-life-org/real-life-stack"><span class="ic"><svg><use href="#i-git"></use></svg></span><div><b>Real Life Stack</b><span>Die offene Grundlage, auf der dieser Entwurf steht.</span></div></a>
+            <a href="https://trustdonation.org"><span class="ic"><svg><use href="#i-info"></use></svg></span><div><b>trustdonation</b><span>Die Geschwister-Instanz für Stiftungen und Projekte.</span></div></a>
+            <a href="https://github.com/lichtungooo/care"><span class="ic"><svg><use href="#i-git"></use></svg></span><div><b>Quellcode</b><span>Dieser Entwurf offen auf GitHub.</span></div></a>
+            <a href="/recht/"><span class="ic"><svg><use href="#i-recht"></use></svg></span><div><b>Recht</b><span>Impressum und Datenschutz.</span></div></a>
+          </div>
+        </div>
+      </div>
+      <a href="#uebergabe">Übergabe</a>
     </nav>
+    <div class="nav-right">
+      <button class="schema" type="button" onclick="schemaUmschalten()" aria-label="Hell oder dunkel">
+        <svg class="zu-dunkel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path></svg>
+        <svg class="zu-hell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+      <a class="pill" href="/demo/">Demo öffnen</a>
+      <button class="burger" type="button" onclick="menueUmschalten()" aria-label="Menü öffnen oder schließen" aria-expanded="false">
+        <svg class="auf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        <svg class="zu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile" id="mobile">
+    <div class="group">Sechs Rollen</div>
+    <a href="#bewohner" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-bewohner"></use></svg></span><span>Bewohner</span></a>
+    <a href="#familie" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-familie"></use></svg></span><span>Angehörige</span></a>
+    <a href="#pflege" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-pflege"></use></svg></span><span>Pflege</span></a>
+    <a href="#therapie" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-therapie"></use></svg></span><span>Therapie und Medizin</span></a>
+    <a href="#ehrenamt" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-ehrenamt"></use></svg></span><span>Ehrenamt und Nachbarn</span></a>
+    <a href="#traeger" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-traeger"></use></svg></span><span>Träger</span></a>
+    <div class="group">Wie es liefe</div>
+    <a href="/demo/"><span class="ic"><svg><use href="#i-karte"></use></svg></span><span>Demo öffnen</span></a>
+    <a href="/kreislauf/"><span class="ic"><svg><use href="#i-kreis"></use></svg></span><span>Kreislauf</span></a>
+    <a href="#module" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-doku"></use></svg></span><span>Module</span></a>
+    <a href="#geld" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-geld"></use></svg></span><span>Wie das Geld fließt</span></a>
+    <a href="#companion" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-companion"></use></svg></span><span>Begleitung</span></a>
+    <a href="#uebergabe" onclick="menueSchliessen()"><span class="ic"><svg><use href="#i-info"></use></svg></span><span>Übergabe</span></a>
+    <a class="pill" href="/demo/">Demo öffnen</a>
   </div>
 </div>
 
-<main>
+<header class="wrap hero" id="top">
+  <div class="eyebrow"><span class="dot"></span><span>Ein Entwurf für Vision Gesundheit</span></div>
+  <h1>So könnte ein Pflege-Pool aussehen.</h1>
+  <p class="lede">Alte Menschen leben in Gemeinschaft, im eigenen Ort. Sechs Rollen tragen den Alltag: Bewohner, Angehörige, Pflege, Therapie, Ehrenamt und Träger. Diese Seite zeigt, wie sich das auf einer Karte, in einem Kalender und in einem Marktplatz organisieren lässt.</p>
+  <div class="hero-cta">
+    <a class="pill lg" href="/demo/">Demo öffnen →</a>
+    <a class="link-arrow" href="/kreislauf/">So läuft der Kreis</a>
+  </div>
+  <p class="hero-note">Eine Sichtbarmachung des Kollektiv Lichtung e.V. für Bärbel und Vision Gesundheit. Das Konzept gehört denen, die es tragen. Wir zeigen, was sich damit bauen ließe.</p>
 
-<section class="hero">
+  <div class="frame">
+    <div class="frame-bar"><span aria-hidden="true"><i></i><i></i><i></i></span><span class="url">care.wir.ooo/demo · Pflegegemeinschaft Lohre</span><a href="/demo/">Demo öffnen →</a></div>
+    <a class="frame-map" href="/demo/" aria-label="Demo öffnen">
+      <svg viewBox="0 0 1040 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="currentColor" stroke-opacity=".08"/></pattern>
+        </defs>
+        <rect width="1040" height="560" fill="url(#grid)"/>
+        <g class="land">
+          <path d="M-20 420c90-70 150-40 240-90s80-140 200-150 170 60 290 30 190-60 350-20V580H-20z"/>
+          <path d="M120 40c80 30 160 10 240 60s60 120 160 130 160-70 260-30 120 90 280 70V-20H120z" opacity=".6"/>
+        </g>
+        <g class="way" fill="none" stroke-linecap="round">
+          <path d="M40 300c120-30 200 40 320 10s200-90 320-60 220 80 340 40"/>
+          <path d="M520 20c-30 120 40 200 10 320s-90 200-60 220" opacity=".7"/>
+          <path d="M120 120c150 40 260 200 400 220s260-40 420-20" opacity=".5"/>
+        </g>
+        <g class="pins">
+          <g class="s" transform="translate(420 260)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+          <g class="p" transform="translate(320 330)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+          <g class="p" transform="translate(510 200)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+          <g class="p" transform="translate(600 320)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+          <g class="s" transform="translate(720 250)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+          <g class="p" transform="translate(250 400)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+          <g class="p" transform="translate(830 390)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+          <g class="s" transform="translate(560 440)"><path d="M0 0c-20-26-30-40-30-58a30 30 0 0 1 60 0c0 18-10 32-30 58z"/><circle cy="-58" r="11"/></g>
+        </g>
+      </svg>
+      <div class="frame-legend"><span><i class="s"></i><span>Pflege-Pools</span></span><span><i class="p"></i><span>Menschen im Kreis</span></span></div>
+      <span class="frame-cta pill lg">Demo öffnen →</span>
+    </a>
+  </div>
+</header>
+
+<p class="wrap proof"><strong>§ 92c SGB XI</strong> öffnet seit dem 1. Januar 2026 die Tür: ambulante Dienste versorgen mehrere Menschen in einer gemeinschaftlichen Wohnform gemeinsam.</p>
+
+<section class="or1" id="rollen">
   <div class="wrap">
-    <h1>Pflege in Gemeinschaft, im eigenen Ort.</h1>
-    <p class="lead">
-      care ist die Betriebsschicht fuer Pflege-Pools und gemeinschaftliche Wohnformen.
-      Karte, Kalender, Rollen, Faehigkeiten, Bedarfe. Offener Quellcode, gemeinnuetzig getragen.
-    </p>
-    <p class="lead-sub">
-      Getragen vom Kollektiv Lichtung e.V., gebaut auf dem Real Life Stack, Vertrauen ueber das Web of Trust.
-      Geschwister-Instanz: <a href="https://trustdonation.org">trustdonation</a>.
-    </p>
-    <div class="hero-cta">
-      <a class="btn primary" href="#rollen">Wie das laeuft</a>
-      <a class="btn ghost" href="#karte">Beispiel-Pools</a>
+    <div class="head">
+      <div class="kicker">Wer den Pool trägt</div>
+      <h2>Sechs Rollen, ein Kreis.</h2>
+      <p class="section-lede">Jede Rolle gibt etwas hinein und bekommt etwas heraus. Keine steht über der anderen. Was heute an Zetteln, Anrufen und Zufall hängt, würde hier an einem Ort sichtbar.</p>
     </div>
-    <p class="hero-note">
-      Rechtlicher Anker: <b>§ 92c SGB XI</b> seit 01.01.2026. Zusammen mit <b>§ 38a</b> (Wohngruppenzuschlag),
-      <b>§ 45e</b> (Anschubfinanzierung) und <b>§ 36 Abs. 4</b> (Poolen von Leistungen).
-    </p>
+    <div class="rollen-grid">
+
+    <article class="rolle gruen" id="bewohner">
+      <div class="verb"><i></i><span>Leben</span></div>
+      <h3>Bewohner: du bleibst, wer du bist.</h3>
+      <p>Du ziehst nicht in eine Einrichtung, du ziehst in eine Gemeinschaft. Was du kannst, bleibt sichtbar. Was du brauchst, wird gehört. Wer dich besucht, steht in deiner Woche. Deine Geschichte trägt mit, auch wenn das Gedächtnis nachlässt.</p>
+      <a class="link-arrow" href="/demo/#bewohner">Bewohner in der Demo →</a>
+      <div class="visual">
+        <div class="row"><div class="avatar">H</div><div class="txt"><b>Helga Braun, 82</b><span>Grundschullehrerin · liest Kindern vor · Klavier</span></div><span class="tag">bietet an</span></div>
+        <div class="row"><div class="avatar">W</div><div class="txt"><b>Wilhelm Schneider, 78</b><span>Zimmermann · leitet in der Werkstatt an</span></div><span class="tag grey">sucht Gespräch</span></div>
+        <div class="row"><div class="avatar">A</div><div class="txt"><b>Aylin Ali, 74</b><span>Krankenschwester · kocht türkische Suppe</span></div><span class="tag">bietet an</span></div>
+        <div class="stack-note">Jedes Profil zeigt zuerst, was ein Mensch kann. Der Pflegegrad steht weiter unten, sichtbar nur für die Pflege.</div>
+      </div>
+    </article>
+
+    <article class="rolle gruen" id="familie">
+      <div class="verb"><i></i><span>Mittragen</span></div>
+      <h3>Angehörige: du siehst, wie es steht.</h3>
+      <p>Aus dem Nachbarort oder aus Berlin: die Woche deiner Mutter liegt offen. Was heute lief, wer da war, was ansteht. Du trägst mit, so weit du kannst, und teilst dir die Last mit deinen Geschwistern auf, ohne Streit über wer wann.</p>
+      <a class="link-arrow" href="/demo/#angehoerige">Angehörige in der Demo →</a>
+      <div class="visual">
+        <div class="row"><div class="avatar">U</div><div class="txt"><b>Ute Braun, Tochter</b><span>Kassel · jeden Samstag · Einkaufsfahrten</span></div><span class="tag">trägt mit</span></div>
+        <div class="row"><div class="avatar">J</div><div class="txt"><b>Jakub Kowalski, Sohn</b><span>Frankfurt · alle zwei Wochen · stimmt das Klavier</span></div><span class="tag grey">Fähigkeit</span></div>
+        <div class="row"><div class="avatar">E</div><div class="txt"><b>Elif Ali, Enkelin</b><span>Studentin in Kassel · Video-Anrufe mit Oma</span></div><span class="tag">wöchentlich</span></div>
+        <div class="stack-note">Eine Zusammenfassung statt Rohdaten: wie es geht, was heute war, was ansteht.</div>
+      </div>
+    </article>
+
+    <article class="rolle gruen" id="pflege">
+      <div class="verb"><i></i><span>Pflegen</span></div>
+      <h3>Pflege: Beziehung statt Minutentakt.</h3>
+      <p>Keine Fahrtzeit zwischen zwanzig Haushalten. Zwanzig Menschen an einem Ort, gepoolte Leistungen, feste Bezugspflege. Die Dokumentation entsteht aus dem, was du sprichst, statt aus dem, was du abends noch tippst.</p>
+      <a class="link-arrow" href="/demo/#pflege">Pflege in der Demo →</a>
+      <div class="visual">
+        <div class="row"><div class="avatar">A</div><div class="txt"><b>Andrea Vogel, PDL</b><span>Palliativ-Zusatz · wohnt im Ort · Leitung</span></div><span class="tag">Bezugspflege 6</span></div>
+        <div class="row"><div class="avatar">S</div><div class="txt"><b>Sara Nowak, Fachkraft</b><span>Wundversorgung · Palliativ · Frühdienst</span></div><span class="tag">Bezugspflege 5</span></div>
+        <div class="row"><div class="avatar">F</div><div class="txt"><b>Fatma Yildiz, Präsenzkraft</b><span>Alltag, Kochen, Ehrenamts-Anleitung</span></div><span class="tag grey">§ 43b</span></div>
+        <div class="stack-note">Sprachnotiz wird zu MDK-tauglicher Dokumentation. Die Pflegekraft prüft und gibt frei.</div>
+      </div>
+    </article>
+
+    <article class="rolle orange" id="therapie">
+      <div class="verb"><i></i><span>Behandeln</span></div>
+      <h3>Therapie und Medizin: ein Vormittag statt acht Fahrten.</h3>
+      <p>Statt einzelner Hausbesuche eine Sprechstunde im Pool. Vor jedem Termin steht, was sich seit dem letzten geändert hat. Berichte und Verordnungen laufen digital, nicht per Fax.</p>
+      <a class="link-arrow" href="/demo/#therapie">Therapie in der Demo →</a>
+      <div class="visual">
+        <div class="row"><div class="avatar">W</div><div class="txt"><b>Dr. Wagner, Hausarzt</b><span>Dienstag-Sprechstunde im Pool · 6 Bewohner</span></div><span class="tag">wöchentlich</span></div>
+        <div class="row"><div class="avatar">K</div><div class="txt"><b>Herr Kern, Physiotherapie</b><span>Montag und Donnerstag · Werkstatt-Ecke</span></div><span class="tag">2× Woche</span></div>
+        <div class="row"><div class="avatar">L</div><div class="txt"><b>Frau Lund, Logopädie</b><span>nach Bedarf · zuletzt Herr Grunewald</span></div><span class="tag grey">auf Abruf</span></div>
+        <div class="stack-note">Zusammenfassung vor dem Termin, Bericht danach. Beides im selben Faden.</div>
+      </div>
+    </article>
+
+    <article class="rolle orange" id="ehrenamt">
+      <div class="verb"><i></i><span>Beitragen</span></div>
+      <h3>Ehrenamt und Nachbarn: eine Stunde, die ankommt.</h3>
+      <p>Du siehst, was gebraucht wird, und wählst, was zu dir passt. Eine Fahrt am Samstag, Vorlesen am Dienstag, den Zaun reparieren. Klarer Rahmen, klare Zeit. Und du siehst, was daraus wurde.</p>
+      <a class="link-arrow" href="/demo/#ehrenamt">Ehrenamt in der Demo →</a>
+      <div class="visual">
+        <div class="row"><div class="avatar">V</div><div class="txt"><b>Volker Meister, Nachbar</b><span>Spaziergänge in der Fulda-Aue · 3 Bewohner</span></div><span class="tag">wöchentlich</span></div>
+        <div class="row"><div class="avatar">3</div><div class="txt"><b>Grundschule, Klasse 3b</b><span>Vorlese-Treffen bei Frau Braun</span></div><span class="tag">dienstags</span></div>
+        <div class="row"><div class="avatar">E</div><div class="txt"><b>Familie Erdogan, Restaurant</b><span>Freitags türkisch kochen im Pool</span></div><span class="tag grey">Nachbarschaft</span></div>
+        <div class="stack-note">Wer schon einmal geholfen hat, wird zuerst gefragt. Der Kreis vor dem Aufruf.</div>
+      </div>
+    </article>
+
+    <article class="rolle orange" id="traeger">
+      <div class="verb"><i></i><span>Tragen</span></div>
+      <h3>Träger: der Pool auf einen Blick.</h3>
+      <p>Genossenschaft, Verein oder Kommune. Auslastung, Personal, Finanzen, offene Fristen, MDK-Stand. Was Aufmerksamkeit braucht, meldet sich selbst, statt in einem Ordner zu warten.</p>
+      <a class="link-arrow" href="/demo/#traeger">Träger in der Demo →</a>
+      <div class="visual">
+        <div class="row"><div class="avatar">W</div><div class="txt"><b>Wir in Lohre eG</b><span>22 Bewohner · 13 im Team · 47 Ehrenamt</span></div><span class="tag">100 % belegt</span></div>
+        <div class="row"><div class="avatar">§</div><div class="txt"><b>§ 92c-Vertrag</b><span>Lohre ambulant · seit August 2026</span></div><span class="tag">aktiv</span></div>
+        <div class="row"><div class="avatar">M</div><div class="txt"><b>MDK-Prüfung</b><span>Termin 22.10. · Doku zu 94 % vollständig</span></div><span class="tag grey">in Vorbereitung</span></div>
+        <div class="stack-note">Selbstverantwortete Wohnform: die Bewohner wählen Dienst und Alltag, kein Heimrecht.</div>
+      </div>
+    </article>
+
+    </div>
   </div>
 </section>
 
-<section id="rollen" class="band-1">
+<section id="module">
   <div class="wrap">
-    <h2>Sechs Rollen im Ring</h2>
-    <p class="lead">
-      Ein Pflege-Pool traegt aus der Gemeinschaft. Sechs Rollen teilen den Alltag, jede gibt und jede bekommt.
-    </p>
-    <div class="grid-6">
-      <div class="card">
-        <span class="ic"><svg><use href="#i-bewohner"></use></svg></span>
-        <h3>Bewohner</h3>
-        <p>Alte Menschen mit ihrer Geschichte, ihren Faehigkeiten, ihrem Bedarf. Sie bleiben Mitgestalter.</p>
-      </div>
-      <div class="card">
-        <span class="ic"><svg><use href="#i-angehoerige"></use></svg></span>
-        <h3>Angehoerige</h3>
-        <p>Familie, enge Verbindungen. Sie mitplanen, mittragen, informiert bleiben.</p>
-      </div>
-      <div class="card">
-        <span class="ic"><svg><use href="#i-pflege"></use></svg></span>
-        <h3>Pflege</h3>
-        <p>Fachkraefte, Hilfskraefte, Alltagsbegleitung. Beziehung statt Minute, Doku statt Berg.</p>
-      </div>
-      <div class="card">
-        <span class="ic"><svg><use href="#i-therapie"></use></svg></span>
-        <h3>Therapie und Medizin</h3>
-        <p>Aerzte, Physio, Ergo, Logo. Termine im Ort, Berichte im Blick.</p>
-      </div>
-      <div class="card">
-        <span class="ic"><svg><use href="#i-ehrenamt"></use></svg></span>
-        <h3>Ehrenamt und Nachbarn</h3>
-        <p>Menschen aus dem Dorf, aus dem Quartier. Fahrten, Besuche, Aktivitaeten, Handwerk.</p>
-      </div>
-      <div class="card">
-        <span class="ic"><svg><use href="#i-traeger"></use></svg></span>
-        <h3>Traeger</h3>
-        <p>Bewohner-Genossenschaft, Angehoerigen-Verein, Kommune. Traegt Raeume, Personal, Geld.</p>
-      </div>
+    <div class="head">
+      <div class="kicker">Die Bausteine</div>
+      <h2>Neun Module tragen den Alltag.</h2>
+      <p class="section-lede">Der Kern ist ein CRM: Menschen, Beziehungen, Vorgänge. Darum legen sich Pflege, Marktplatz und Wirkung. Jeder Baustein steht für sich und greift in die anderen.</p>
     </div>
-  </div>
-</section>
-
-<section id="was-care-macht" class="band-0">
-  <div class="wrap">
-    <h2>Was care in einem Pool traegt</h2>
-    <div class="grid-4">
-      <div class="feature">
-        <span class="ic"><svg><use href="#i-karte"></use></svg></span>
-        <h3>Karte</h3>
-        <p>Pools, Raeume, Menschen, Faehigkeiten, Bedarfe. Farbe zeigt Rolle, Klick oeffnet den Zwilling.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="num">1</span>
+        <h3>Menschen</h3>
+        <p>Jeder im Kreis hat ein Profil: Rolle, Fähigkeiten, Erreichbarkeit, Beziehungen. Jedes Feld einzeln sichtbar oder verborgen. Der Kern des Ganzen.</p>
       </div>
-      <div class="feature">
-        <span class="ic"><svg><use href="#i-kalender"></use></svg></span>
+      <div class="card">
+        <span class="num">2</span>
         <h3>Kalender</h3>
-        <p>Jeder Ort traegt seine Woche. Pflege-Einsatz, Therapie, Aktivitaet, Besuch, Feier.</p>
+        <p>Eine Zeitachse, fünf Sichten. Der Bewohner sieht seinen Tag, die Pflegekraft ihre Schicht, die Tochter die Woche ihrer Mutter, der Arzt seine Sprechstunde.</p>
       </div>
-      <div class="feature">
-        <span class="ic"><svg><use href="#i-markt"></use></svg></span>
+      <div class="card">
+        <span class="num">3</span>
+        <h3>Pflegeplan und Doku</h3>
+        <p>Ziele, Maßnahmen, Verlauf, Trends. MDK-tauglich. Aus einer Sprachnotiz wird ein fertiger Eintrag, den die Pflegekraft nur noch freigibt.</p>
+      </div>
+      <div class="card">
+        <span class="num">4</span>
         <h3>Marktplatz</h3>
-        <p>Wer kann was, wer braucht was. Passung mit Begruendung Zeile fuer Zeile, aus dem Kreis heraus.</p>
+        <p>Was jemand kann, trifft auf das, was jemand braucht. Mit Begründung Zeile für Zeile. Erst der eigene Kreis, dann die Nachbarschaft.</p>
       </div>
-      <div class="feature">
-        <span class="ic"><svg><use href="#i-kreis"></use></svg></span>
-        <h3>Care-Management</h3>
-        <p>Pflegeplan, Einsatz, Vertretung, Doku. MDK-tauglich. Poolen der Leistungen wird sichtbar.</p>
+      <div class="card">
+        <span class="num">5</span>
+        <h3>Beziehungs-Netz</h3>
+        <p>Wer kennt wen, wer hat wofür schon getragen. Bestätigungen statt Sternebewertung. Vertrauen bleibt beim Menschen, auch beim Wechsel.</p>
+      </div>
+      <div class="card">
+        <span class="num">6</span>
+        <h3>Aufgaben</h3>
+        <p>Was offen ist, wer es macht, bis wann. Von der Wundkontrolle über die Vollmacht bis zur MDK-Vorbereitung. Fristen melden sich von selbst.</p>
+      </div>
+      <div class="card">
+        <span class="num">7</span>
+        <h3>Nachrichten</h3>
+        <p>Ein Ereignis, vier Empfänger, vier Tonlagen. Die Tochter bekommt eine sachliche Meldung, die Bewohnerin eine warme Frage.</p>
+      </div>
+      <div class="card">
+        <span class="num">8</span>
+        <h3>Finanzen</h3>
+        <p>Pflegekasse, Eigenanteil, Fördermittel, Ausgaben. Was gepoolt wurde und was daraus an Zeit zurückfloss.</p>
+      </div>
+      <div class="card">
+        <span class="num">9</span>
+        <h3>Wirkung</h3>
+        <p>Was diese Woche geschah, wer da war, was gelang. Für die Familie, für den Träger, für Förderer. Aus Daten wird eine Erzählung.</p>
+      </div>
+    </div>
+    <p class="wrap proof" style="padding-inline:0;margin-top:34px"><strong>Zehn weitere Bausteine</strong> stehen im Konzept: Gruppen, Behördenvorgänge, Ressourcen, Rückblick, Presse, Kommunen, Förderer und der öffentliche Zugang.</p>
+  </div>
+</section>
+
+<section class="or3" id="geld">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Die Rechnung</div>
+      <h2>Wie das Geld fließt.</h2>
+      <p class="section-lede">Ein Pool mit zwanzig Bewohnern bei durchschnittlichem Pflegegrad 3 nimmt rund 46.000 Euro im Monat aus der Pflegekasse ein. Der Eigenanteil liegt bei etwa 1.500 Euro, deutlich unter den 2.900 Euro im Heim.</p>
+    </div>
+    <div class="facts vier">
+      <div class="fact"><b>450 EUR</b><span>Pauschale je Bewohner und Monat nach § 92c SGB XI, zusätzlich zur Sachleistung.</span></div>
+      <div class="fact"><b>224 EUR</b><span>Wohngruppenzuschlag je Bewohner nach § 38a. Trägt die Präsenzkraft.</span></div>
+      <div class="fact"><b>10.000 EUR</b><span>Anschubfinanzierung je Gruppe nach § 45e. Einmalig, nur bei Gründung.</span></div>
+      <div class="fact"><b>4.180 EUR</b><span>Wohnraum-Zuschuss je Person nach § 40 für den barrierefreien Umbau.</span></div>
+    </div>
+    <p class="proof" style="padding-inline:0;margin-top:34px"><strong>Das Poolen ist der eigentliche Hebel.</strong> Wenn mehrere Bewohner denselben Dienst haben, dürfen ihre Ansprüche nach § 36 Abs. 4 SGB XI zusammengelegt werden. Die gesparte Fahrt- und Verwaltungszeit fließt als zusätzliche Pflegezeit zurück. In einem Pool mit zwanzig Menschen sind das rund 87 Stunden im Monat.</p>
+  </div>
+</section>
+
+<section id="companion">
+  <div class="wrap flow">
+    <div>
+      <div class="head left">
+        <div class="kicker">Die Begleitung</div>
+        <h2>Eine AI, die niemandem die Hand abnimmt.</h2>
+        <p class="section-lede">Jeder im Kreis hätte einen Begleiter mit eigenem Namen. Der Bewohner spricht mit ihm, ohne je einen Bildschirm anzufassen. Die Pflegekraft diktiert ihre Doku. Die Tochter fragt, wie es steht. Der Träger lässt den MDK vorbereiten.</p>
+      </div>
+      <a class="link-arrow" href="/demo/#begleitung">Begleitung in der Demo →</a>
+    </div>
+    <div class="cards">
+      <div class="card tight">
+        <h3>Aus Sprache wird Doku</h3>
+        <p>Zwanzig Sekunden gesprochen, MDK-tauglich strukturiert, von der Pflegekraft freigegeben. Die Dokumentationslast sinkt von einem Drittel der Schicht auf wenige Minuten.</p>
+      </div>
+      <div class="card tight">
+        <h3>Aus einem Wunsch wird ein Termin</h3>
+        <p>„Ich würde gern wieder Klavier spielen.“ Der Begleiter sucht im Kreis, schlägt drei Menschen vor und begründet jeden. Die Präsenzkraft wählt.</p>
+      </div>
+      <div class="card tight">
+        <h3>Aus Behördenpost wird Klartext</h3>
+        <p>Die Tochter fotografiert den Brief der Pflegekasse. Der Begleiter erklärt, was verlangt wird, nennt die Frist und schlägt eine Antwort vor.</p>
+      </div>
+      <div class="card tight">
+        <h3>Ohne Bildschirm dabei</h3>
+        <p>Ein Lautsprecher im Zimmer, eine große Tafel im Gemeinschaftsraum, der Wochenplan als Aushang. Wer nie ein Smartphone hatte, ist trotzdem mitten drin.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="karte" class="band-2">
+<section class="or1" id="uebergabe">
   <div class="wrap">
-    <h2>Drei Beispiel-Pools</h2>
-    <p class="lead">
-      So sieht ein Pool auf der Karte aus. Klick oeffnet den Zwilling mit Menschen, Kalender, Bedarfen.
-    </p>
-    <div class="grid-3">
-      <a class="pool" href="/pools/lohre.html">
-        <div class="pool-hd">
-          <span class="ic"><svg><use href="#i-haus"></use></svg></span>
-          <h3>Pflegegemeinschaft Lohre</h3>
-        </div>
-        <p class="pool-loc">Schwalm-Eder, Nord-Hessen</p>
-        <ul class="pool-stats">
-          <li><b>22</b> Bewohner</li>
-          <li><b>13</b> Team</li>
-          <li><b>47</b> Ehrenamt</li>
-          <li><b>34</b> Termine diese Woche</li>
-        </ul>
-      </a>
-      <a class="pool" href="/pools/kassel-nord.html">
-        <div class="pool-hd">
-          <span class="ic"><svg><use href="#i-haus"></use></svg></span>
-          <h3>Kassel-Nord</h3>
-        </div>
-        <p class="pool-loc">Stadtquartier, Hessen</p>
-        <ul class="pool-stats">
-          <li><b>18</b> Bewohner</li>
-          <li><b>11</b> Team</li>
-          <li><b>32</b> Ehrenamt</li>
-          <li><b>29</b> Termine diese Woche</li>
-        </ul>
-      </a>
-      <a class="pool" href="/pools/melsungen-suedhang.html">
-        <div class="pool-hd">
-          <span class="ic"><svg><use href="#i-haus"></use></svg></span>
-          <h3>Melsungen Suedhang</h3>
-        </div>
-        <p class="pool-loc">Neubau, Schwalm-Eder</p>
-        <ul class="pool-stats">
-          <li><b>24</b> Bewohner</li>
-          <li><b>14</b> Team</li>
-          <li><b>52</b> Ehrenamt</li>
-          <li><b>41</b> Termine diese Woche</li>
-        </ul>
-      </a>
+    <div class="head">
+      <div class="kicker">Worum es hier geht</div>
+      <h2>Ein Entwurf zum Weitergeben.</h2>
+      <p class="section-lede">Diese Seite ist kein Produkt und keine laufende Anwendung. Sie zeigt, wie sich das Konzept eines Pflege-Pools in Software fassen ließe, damit die Menschen, die es umsetzen, eine Vorstellung davon haben.</p>
     </div>
-    <p class="hint">
-      Diese Pools sind <b>Anschauung</b>. Reale Namen, Fotos und Personen ziehen ein, wenn der erste Standort traegt.
-    </p>
-  </div>
-</section>
-
-<section id="geld" class="band-1">
-  <div class="wrap">
-    <h2>Wie das Geld fliesst</h2>
-    <p class="lead">
-      Ein Pool nach § 92c SGB XI rechnet pro 20 Bewohner mit rund 46.000 EUR aus der Pflegekasse
-      jeden Monat. Dazu Eigenanteil und Foerdermittel. Weniger Eigenanteil als im Heim, mehr Zeit fuer Beziehung.
-    </p>
-    <div class="grid-4">
-      <div class="stat">
-        <span class="num">450 EUR</span>
-        <p>Pauschale je Bewohner und Monat nach § 92c SGB XI.</p>
-      </div>
-      <div class="stat">
-        <span class="num">224 EUR</span>
-        <p>Wohngruppenzuschlag je Bewohner nach § 38a. Traegt Praesenzkraft und Alltag.</p>
-      </div>
-      <div class="stat">
-        <span class="num">bis 10.000 EUR</span>
-        <p>Anschubfinanzierung nach § 45e pro Gruppe. Fuer Bau und Ausstattung.</p>
-      </div>
-      <div class="stat">
-        <span class="num">bis 4.180 EUR</span>
-        <p>Wohnraum-Zuschuss je Person nach § 40. Fuer barrierefreien Umbau.</p>
-      </div>
-    </div>
-    <p class="hint">
-      Genaue Rechnung mit Beispielrechnung fuer 20 Bewohner:
-      <a href="/geld/">Zum Detail-Blatt</a>.
-    </p>
-  </div>
-</section>
-
-<section id="wie" class="band-0">
-  <div class="wrap">
-    <h2>Wie es funktioniert</h2>
-    <div class="steps">
+    <div class="steps vier">
       <div class="step">
-        <span class="step-num">1</span>
-        <h3>Der Pool entsteht im Ort.</h3>
-        <p>
-          Angehoerige, Bewohner, Kommune, Pflegedienst finden zusammen. Sie waehlen einen Traeger
-          (Genossenschaft, Verein, Bewohner-Gemeinschaft). Sie klaeren Raum, Personal, § 92c-Vertrag.
-        </p>
+        <span class="n">1</span>
+        <h3>Das Konzept gehört Vision Gesundheit.</h3>
+        <p>Bärbel und ihr Team entwickeln den Pflege-Pool. Sie kennen das Feld, sie tragen das Risiko, sie entscheiden. Wir bauen keine Pflege und führen keinen Träger.</p>
       </div>
       <div class="step">
-        <span class="step-num">2</span>
-        <h3>care traegt die Betriebsschicht.</h3>
-        <p>
-          Der Pool nutzt eine care-Instanz auf dem Real Life Stack. Karte, Menschen, Kalender,
-          Faehigkeiten, Bedarfe, Care-Management, Finanzmodul. Alles im eigenen Space.
-        </p>
+        <span class="n">2</span>
+        <h3>Wir zeigen, was möglich wäre.</h3>
+        <p>Diese Sichtbarmachung ist in wenigen Tagen auf dem Real Life Stack entstanden. Sie macht aus einer Idee etwas Anschauliches, über das man reden kann.</p>
       </div>
       <div class="step">
-        <span class="step-num">3</span>
-        <h3>Der Kreis wird sichtbar.</h3>
-        <p>
-          Wer kann was, wer braucht was, wer ist wann da. Aus dem Alltag entsteht Passung, aus Passung
-          entsteht Beziehung, aus Beziehung entsteht Zuhause.
-        </p>
+        <span class="n">3</span>
+        <h3>Alle Menschen hier sind erfunden.</h3>
+        <p>Helga Braun, Sara Nowak, Volker Meister: keine echten Personen, keine echten Daten. Beispiele, damit das Bild trägt. Kein Foto ohne Einwilligung, kein Gesundheitsdatum ohne Grundlage.</p>
       </div>
       <div class="step">
-        <span class="step-num">4</span>
-        <h3>Das Netz waechst mit.</h3>
-        <p>
-          Jeder Pool auf der oeffentlichen Karte. Familien in ganz Deutschland finden ihre Pools.
-          Erfahrung fliesst zwischen den Standorten. Der Baukasten waechst.
-        </p>
+        <span class="n">4</span>
+        <h3>Der Quellcode liegt offen.</h3>
+        <p>Wer weiterbaut, findet alles auf GitHub. Der Real Life Stack darunter ist offen, die Vertrauensschicht auch. Nichts davon ist an uns gebunden.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="partner" class="band-2">
+<section class="closing" id="weiter">
   <div class="wrap">
-    <h2>Erste Partner</h2>
-    <div class="grid-2">
-      <div class="partner">
-        <h3>Vision Gesundheit</h3>
-        <p class="partner-who">Baerbel und ihr Team, Nord-Hessen.</p>
-        <p>
-          Vision Gesundheit ist der erste Traeger, der einen Pool nach § 92c SGB XI mit care aufbauen will.
-          Erster Standort im Schwalm-Eder-Kreis, sechs Millionen Euro Anschub in Aussicht.
-        </p>
-        <p class="partner-when">Start-Fenster: 2026 bis 2027.</p>
-      </div>
-      <div class="partner">
-        <h3>Kollektiv Lichtung e.V.</h3>
-        <p class="partner-who">Gemeinnuetziger Traeger von care.</p>
-        <p>
-          Der Verein haelt den Kern von care. Kein Investor, keine Rendite-Erwartung, keine Fremd-Uebernahme.
-          Open Source, Werkvertrag mit Traegern, Service als Geschaeftsmodell.
-        </p>
-        <p class="partner-when">Aktive Traeger seit 2019.</p>
-      </div>
+    <h2>Schauen Sie sich den Pool an.</h2>
+    <p>Pflegegemeinschaft Lohre: 22 Bewohner, 13 im Team, 47 Ehrenamtliche, eine Woche im Kalender. Alles erfunden, alles so gedacht, wie es laufen könnte.</p>
+    <div class="hero-cta">
+      <a class="pill lg" href="/demo/">Demo öffnen →</a>
+      <a class="link-arrow" href="/kreislauf/">So läuft der Kreis</a>
     </div>
   </div>
 </section>
 
-<section id="offen" class="band-1">
-  <div class="wrap">
-    <h2>Offen und ehrlich</h2>
-    <div class="grid-3">
-      <div class="open">
-        <h3>Was care ist</h3>
-        <ul>
-          <li>Werkzeug fuer Pflege-Pools</li>
-          <li>Offener Quellcode</li>
-          <li>Gemeinnuetzig getragen</li>
-          <li>Bewohner-orientiert</li>
-          <li>Anschluss an Real Life Stack</li>
-        </ul>
-      </div>
-      <div class="open">
-        <h3>Was care nicht ist</h3>
-        <ul>
-          <li>Kein Pflege-Traeger</li>
-          <li>Kein Heim-Ersatz</li>
-          <li>Keine Anti-Medizin-Bewegung</li>
-          <li>Keine Rendite-Ecke</li>
-          <li>Kein Rundum-Sorglos-Paket</li>
-        </ul>
-      </div>
-      <div class="open">
-        <h3>Was care braucht</h3>
-        <ul>
-          <li>Traeger vor Ort</li>
-          <li>Pflegedienst nach § 92c</li>
-          <li>Bewohner und Angehoerige</li>
-          <li>Ehrenamt und Nachbarschaft</li>
-          <li>Zeit fuer Vertrauen</li>
-        </ul>
-      </div>
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="brand sm" href="/" aria-label="care">c<svg class="signet" aria-hidden="true"><use href="#signet"></use></svg>re</a>
+      <p class="about">Eine Sichtbarmachung des Kollektiv Lichtung e.V., gebaut auf dem Real Life Stack. Für Bärbel und Vision Gesundheit. Das Konzept gehört denen, die es tragen.</p>
+    </div>
+    <div>
+      <h4>Sechs Rollen</h4>
+      <ul>
+        <li><a href="#bewohner">Bewohner</a></li>
+        <li><a href="#familie">Angehörige</a></li>
+        <li><a href="#pflege">Pflege</a></li>
+        <li><a href="#therapie">Therapie und Medizin</a></li>
+        <li><a href="#ehrenamt">Ehrenamt und Nachbarn</a></li>
+        <li><a href="#traeger">Träger</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Der Entwurf</h4>
+      <ul>
+        <li><a href="/demo/">Demo öffnen</a></li>
+        <li><a href="/kreislauf/">Kreislauf</a></li>
+        <li><a href="#module">Module</a></li>
+        <li><a href="#geld">Wie das Geld fließt</a></li>
+        <li><a href="#companion">Begleitung</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Dahinter</h4>
+      <ul>
+        <li><a href="https://github.com/lichtungooo/care">Quellcode</a></li>
+        <li><a href="https://github.com/real-life-org/real-life-stack">Real Life Stack</a></li>
+        <li><a href="https://trustdonation.org">trustdonation</a></li>
+        <li><a href="/recht/">Impressum und Datenschutz</a></li>
+      </ul>
     </div>
   </div>
-</section>
-
-<footer class="site-foot">
-  <div class="wrap foot-inner">
-    <div class="foot-brand">
-      <a class="brand" href="/" aria-label="care">c<svg class="signet" aria-hidden="true"><use href="#signet"></use></svg>re</a>
-      <p>Pflege in Gemeinschaft, im eigenen Ort.</p>
-    </div>
-    <div class="foot-links">
-      <div>
-        <b>Sehen</b>
-        <a href="#rollen">Rollen</a>
-        <a href="/kreislauf/">Kreislauf</a>
-        <a href="#karte">Karte</a>
-        <a href="#geld">Geld</a>
-      </div>
-      <div>
-        <b>Verstehen</b>
-        <a href="#wie">Wie es funktioniert</a>
-        <a href="#partner">Partner</a>
-        <a href="#offen">Offen und ehrlich</a>
-      </div>
-      <div>
-        <b>Verbunden</b>
-        <a href="https://trustdonation.org">trustdonation</a>
-        <a href="https://wir.ooo">wir.ooo</a>
-        <a href="https://github.com/lichtungooo/care">Quellcode</a>
-        <a href="/recht/">Recht</a>
-      </div>
-    </div>
+  <div class="wrap foot-bottom">
+    <span>Kollektiv Lichtung e.V. · Entwurf, kein Produkt</span>
+    <span>Alle Menschen auf dieser Seite sind erfunden.</span>
   </div>
 </footer>
-
-</main>
 
 <script src="/site.js" defer></script>
 </body>

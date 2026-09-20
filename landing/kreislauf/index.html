@@ -3,158 +3,191 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kreislauf — care</title>
-<meta name="description" content="Sechs Rollen tragen einen Pflege-Pool. Jede gibt, jede bekommt.">
+<title>Der Kreislauf — care</title>
+<meta name="description" content="Sechs Rollen tragen einen Pflege-Pool. Jede gibt etwas hinein, jede bekommt etwas heraus.">
 <link rel="icon" href="/branding/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/site.css">
+<script>
+  try {
+    var w = localStorage.getItem("care-theme")
+    if (w === "dark" || w === "light") document.documentElement.dataset.theme = w
+  } catch (e) {}
+</script>
 </head>
 
-<body>
+<body data-seite="kreislauf">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol viewBox="0 0 150 150" id="signet"><path style="fill:var(--gruen,#4A6B5A)" d="M 68 8 A 67 67 0 0 0 68 142 L 68 99 A 24 24 0 0 1 68 51 Z"></path><path style="fill:var(--gold,#C08B5C)" d="M 82 8 A 67 67 0 0 1 82 142 L 82 99 A 24 24 0 0 0 82 51 Z"></path><circle style="fill:var(--gold,#C08B5C)" cx="75" cy="75" r="14"></circle></symbol>
+    <symbol viewBox="0 0 24 24" id="i-caret" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></symbol>
+  </defs>
+</svg>
 
 <div class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="/" aria-label="care">c<svg class="signet" viewBox="0 0 150 150" aria-hidden="true">
-      <path fill="var(--gruen)" d="M 68 8 A 67 67 0 0 0 68 142 L 68 99 A 24 24 0 0 1 68 51 Z"/>
-      <path fill="var(--gold)" d="M 82 8 A 67 67 0 0 1 82 142 L 82 99 A 24 24 0 0 0 82 51 Z"/>
-      <circle fill="var(--gold)" cx="75" cy="75" r="14"/>
-    </svg>re</a>
+    <a class="brand" href="/" aria-label="care">c<svg class="signet" aria-hidden="true"><use href="#signet"></use></svg>re</a>
     <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="/#rollen">Rollen</a>
-      <a href="/#karte">Karte</a>
-      <a href="/#partner">Partner</a>
-      <a href="/recht/">Recht</a>
+      <a href="/#rollen">Sechs Rollen</a>
+      <a href="/kreislauf/" aria-current="page">Kreislauf</a>
+      <a href="/#module">Module</a>
+      <a href="/#geld">Wie das Geld fließt</a>
+      <a href="/#uebergabe">Übergabe</a>
     </nav>
+    <div class="nav-right">
+      <button class="schema" type="button" onclick="schemaUmschalten()" aria-label="Hell oder dunkel">
+        <svg class="zu-dunkel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z"></path></svg>
+        <svg class="zu-hell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+      </button>
+      <a class="pill" href="/demo/">Demo öffnen</a>
+      <button class="burger" type="button" onclick="menueUmschalten()" aria-label="Menü öffnen oder schließen" aria-expanded="false">
+        <svg class="auf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+        <svg class="zu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile" id="mobile">
+    <a href="/#rollen"><span>Sechs Rollen</span></a>
+    <a href="/demo/"><span>Demo öffnen</span></a>
+    <a href="/#module"><span>Module</span></a>
+    <a href="/#geld"><span>Wie das Geld fließt</span></a>
+    <a href="/#uebergabe"><span>Übergabe</span></a>
+    <a class="pill" href="/demo/">Demo öffnen</a>
   </div>
 </div>
 
-<main>
+<header class="wrap hero slim">
+  <div class="eyebrow"><span class="dot"></span><span>Der Kreislauf</span></div>
+  <h1>Sechs Rollen, ein Kreis.</h1>
+  <p class="lede">Ein Pflege-Pool trägt aus der Gemeinschaft. Jede Rolle gibt etwas hinein und bekommt etwas heraus. Der Kreis schließt sich, jeden Tag neu.</p>
+</header>
 
-<section class="hero">
-  <div class="wrap">
-    <h1>Sechs Rollen im Ring.</h1>
-    <p class="lead">
-      Ein Pflege-Pool traegt aus der Gemeinschaft. Sechs Rollen teilen den Alltag.
-      Jede gibt etwas hinein. Jede bekommt etwas heraus. Der Kreis schliesst sich, jeden Tag neu.
-    </p>
+<section class="or1">
+  <div class="wrap" style="display:grid;place-items:center">
+    <svg class="diagram" viewBox="0 0 640 640" style="max-width:600px;width:100%;height:auto" role="img" aria-label="Sechs Rollen im Kreis um die Betriebsschicht">
+      <defs>
+        <marker id="pf" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 L10 5 L0 10z"></path></marker>
+      </defs>
+
+      <circle class="ring" cx="320" cy="320" r="252" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 7"></circle>
+
+      <g class="arc" fill="none" stroke="var(--gold)" stroke-width="2" opacity=".5" marker-end="url(#pf)">
+        <path d="M 368 86 A 252 252 0 0 1 505 184"></path>
+        <path d="M 554 272 A 252 252 0 0 1 554 368"></path>
+        <path d="M 505 456 A 252 252 0 0 1 368 554"></path>
+        <path d="M 272 554 A 252 252 0 0 1 135 456"></path>
+        <path d="M 86 368 A 252 252 0 0 1 86 272"></path>
+        <path d="M 135 184 A 252 252 0 0 1 272 86"></path>
+      </g>
+
+      <g class="node">
+        <g transform="translate(320 68)">
+          <circle r="52"></circle>
+          <text y="0" font-size="15">Bewohner</text>
+          <text class="sub" y="17">leben</text>
+        </g>
+        <g transform="translate(538 194)">
+          <circle r="52"></circle>
+          <text y="0" font-size="14">Angehörige</text>
+          <text class="sub" y="17">tragen mit</text>
+        </g>
+        <g class="orange" transform="translate(538 446)">
+          <circle r="52"></circle>
+          <text y="-4" font-size="14">Ehrenamt</text>
+          <text y="11" font-size="12">und Nachbarn</text>
+          <text class="sub" y="27">bringen Zeit</text>
+        </g>
+        <g transform="translate(320 572)">
+          <circle r="52"></circle>
+          <text y="0" font-size="15">Pflege</text>
+          <text class="sub" y="17">sorgt</text>
+        </g>
+        <g class="orange" transform="translate(102 446)">
+          <circle r="52"></circle>
+          <text y="-4" font-size="14">Therapie</text>
+          <text y="11" font-size="12">und Medizin</text>
+          <text class="sub" y="27">behandelt</text>
+        </g>
+        <g transform="translate(102 194)">
+          <circle r="52"></circle>
+          <text y="0" font-size="15">Träger</text>
+          <text class="sub" y="17">hält</text>
+        </g>
+      </g>
+
+      <g class="center" transform="translate(320 320)">
+        <circle r="78"></circle>
+        <text y="-4" font-size="21">care</text>
+        <text class="sub" y="18">BETRIEBSSCHICHT</text>
+      </g>
+    </svg>
   </div>
 </section>
 
-<section class="band-1">
+<section>
   <div class="wrap">
-    <div style="display: grid; place-items: center; padding: 20px 0 40px;">
-      <svg viewBox="0 0 600 600" style="max-width: 560px; width: 100%; height: auto;" role="img" aria-label="Kreislauf mit sechs Rollen">
-        <defs>
-          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--gold)"/>
-          </marker>
-        </defs>
-
-        <circle cx="300" cy="300" r="260" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 6"/>
-
-        <g font-family="Hanken Grotesk, system-ui, sans-serif" font-weight="700" text-anchor="middle">
-          <g transform="translate(300, 60)">
-            <circle r="46" fill="var(--surface)" stroke="var(--gruen)" stroke-width="3"/>
-            <text y="4" font-size="15" fill="var(--ink)">Bewohner</text>
-          </g>
-          <g transform="translate(508, 180)">
-            <circle r="46" fill="var(--surface)" stroke="var(--gruen)" stroke-width="3"/>
-            <text y="0" font-size="14" fill="var(--ink)">Angehoerige</text>
-          </g>
-          <g transform="translate(508, 420)">
-            <circle r="46" fill="var(--surface)" stroke="var(--gold)" stroke-width="3"/>
-            <text y="-4" font-size="14" fill="var(--ink)">Ehrenamt</text>
-            <text y="14" font-size="12" fill="var(--muted)" font-weight="500">und Nachbarn</text>
-          </g>
-          <g transform="translate(300, 540)">
-            <circle r="46" fill="var(--surface)" stroke="var(--gruen)" stroke-width="3"/>
-            <text y="4" font-size="15" fill="var(--ink)">Pflege</text>
-          </g>
-          <g transform="translate(92, 420)">
-            <circle r="46" fill="var(--surface)" stroke="var(--gold)" stroke-width="3"/>
-            <text y="-4" font-size="14" fill="var(--ink)">Therapie</text>
-            <text y="14" font-size="12" fill="var(--muted)" font-weight="500">und Medizin</text>
-          </g>
-          <g transform="translate(92, 180)">
-            <circle r="46" fill="var(--surface)" stroke="var(--gruen)" stroke-width="3"/>
-            <text y="4" font-size="15" fill="var(--ink)">Traeger</text>
-          </g>
-
-          <g transform="translate(300, 300)">
-            <circle r="70" fill="var(--accent-soft)" stroke="var(--gold)" stroke-width="3"/>
-            <text y="-2" font-size="20" font-weight="800" fill="var(--ink)">care</text>
-            <text y="20" font-size="12" font-weight="600" fill="var(--accent)">Betriebsschicht</text>
-          </g>
-        </g>
-
-        <g fill="none" stroke="var(--gold)" stroke-width="2" opacity="0.55">
-          <path d="M 344 92 A 240 240 0 0 1 468 168" marker-end="url(#arrow)"/>
-          <path d="M 508 226 A 240 240 0 0 1 508 374" marker-end="url(#arrow)"/>
-          <path d="M 468 432 A 240 240 0 0 1 344 508" marker-end="url(#arrow)"/>
-          <path d="M 256 508 A 240 240 0 0 1 132 432" marker-end="url(#arrow)"/>
-          <path d="M 92 374 A 240 240 0 0 1 92 226" marker-end="url(#arrow)"/>
-          <path d="M 132 168 A 240 240 0 0 1 256 92" marker-end="url(#arrow)"/>
-        </g>
-      </svg>
+    <div class="head">
+      <div class="kicker">Geben und bekommen</div>
+      <h2>Was jede Rolle einbringt.</h2>
+      <p class="section-lede">Niemand ist nur Empfänger. Auch ein Mensch mit Pflegegrad 4 bringt etwas mit, das andere brauchen. Genau darum geht es.</p>
     </div>
-  </div>
-</section>
-
-<section class="band-0">
-  <div class="wrap">
-    <h2>Wer was gibt und was bekommt</h2>
-    <div class="grid-2" style="margin-top: 20px;">
-      <div class="card">
+    <div class="cards">
+      <div class="card tight">
         <h3>Bewohner</h3>
-        <p><b>Gibt:</b> Geschichte, Faehigkeiten, Beziehung, Aufmerksamkeit, Vorbild.</p>
-        <p style="margin-top: 8px;"><b>Bekommt:</b> Pflege, Zuwendung, Alltag, Sicherheit, Zuhause.</p>
+        <p><b>Geben:</b> Geschichte, Fähigkeiten, Beziehung, Aufmerksamkeit, Erfahrung eines ganzen Lebens.</p>
+        <p style="margin-top:9px"><b>Bekommen:</b> Pflege, Zuwendung, Alltag, Sicherheit, ein Zuhause.</p>
       </div>
-      <div class="card">
-        <h3>Angehoerige</h3>
-        <p><b>Geben:</b> Zeit, Wissen ueber den Menschen, Fahrten, Mitwirkung.</p>
-        <p style="margin-top: 8px;"><b>Bekommen:</b> Entlastung, Klarheit, Gemeinschaft, Verbindung.</p>
+      <div class="card tight">
+        <h3>Angehörige</h3>
+        <p><b>Geben:</b> Zeit, Wissen über den Menschen, Fahrten, Mitwirkung an Entscheidungen.</p>
+        <p style="margin-top:9px"><b>Bekommen:</b> Entlastung, Klarheit, Gemeinschaft, Verbindung ohne schlechtes Gewissen.</p>
       </div>
-      <div class="card">
+      <div class="card tight">
         <h3>Pflege</h3>
-        <p><b>Gibt:</b> Fachliche Sorge, Zeit, Beziehung, Doku, Verlaesslichkeit.</p>
-        <p style="margin-top: 8px;"><b>Bekommt:</b> Anerkennung, Anstellung mit Sinn, Team, gerechte Bezahlung.</p>
+        <p><b>Geben:</b> Fachliche Sorge, Zeit, Beziehung, Dokumentation, Verlässlichkeit.</p>
+        <p style="margin-top:9px"><b>Bekommen:</b> Anerkennung, Arbeit mit Sinn, ein Team, faire Bezahlung.</p>
       </div>
-      <div class="card">
+      <div class="card tight">
         <h3>Therapie und Medizin</h3>
-        <p><b>Gibt:</b> Behandlung, Heilung, Bewegung, Sprache, Beratung.</p>
-        <p style="margin-top: 8px;"><b>Bekommt:</b> Zugang zu den Menschen, geordneten Rahmen, Zusammenarbeit.</p>
+        <p><b>Geben:</b> Behandlung, Bewegung, Sprache, Beratung, ärztliche Begleitung.</p>
+        <p style="margin-top:9px"><b>Bekommen:</b> Zugang zu den Menschen, geordneten Rahmen, echte Zusammenarbeit.</p>
       </div>
-      <div class="card">
+      <div class="card tight">
         <h3>Ehrenamt und Nachbarn</h3>
-        <p><b>Geben:</b> Zeit, Faehigkeiten, Nachbarschaft, Fahrten, Aktivitaeten.</p>
-        <p style="margin-top: 8px;"><b>Bekommen:</b> Sinn, Zugehoerigkeit, Beziehungen ueber Generationen.</p>
+        <p><b>Geben:</b> Zeit, Fähigkeiten, Nachbarschaft, Fahrten, Aktivitäten, Anwesenheit.</p>
+        <p style="margin-top:9px"><b>Bekommen:</b> Sinn, Zugehörigkeit, Beziehungen über Generationen hinweg.</p>
       </div>
-      <div class="card">
-        <h3>Traeger</h3>
-        <p><b>Gibt:</b> Struktur, Raeume, Vertraege, Geld-Verwaltung, Vertretung nach aussen.</p>
-        <p style="margin-top: 8px;"><b>Bekommt:</b> Sinnvolle Aufgabe, gemeinnuetzige Wirkung, gesundes Wachstum.</p>
+      <div class="card tight">
+        <h3>Träger</h3>
+        <p><b>Geben:</b> Struktur, Räume, Verträge, Verwaltung, Vertretung nach außen.</p>
+        <p style="margin-top:9px"><b>Bekommen:</b> Eine sinnvolle Aufgabe, gemeinnützige Wirkung, gesundes Wachstum.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band-1">
+<section class="or3">
   <div class="wrap">
-    <h2>Was in der Mitte sitzt</h2>
-    <p class="lead">
-      In der Mitte des Kreises sitzt <b>care</b>. Die Betriebsschicht macht sichtbar,
-      wer wann was tut. Sie erinnert. Sie zeigt Passung. Sie fuehrt Doku. Sie loest den Bergwust an Papier.
-    </p>
-    <p class="lead" style="margin-top: 8px;">
-      care ist nicht der Kreis. care ist das Werkzeug, das dem Kreis dient.
-    </p>
-    <div style="margin-top: 30px;">
-      <a class="btn primary" href="/#karte">Beispiel-Pools sehen</a>
-      <a class="btn ghost" href="/#partner" style="margin-left: 8px;">Erste Partner</a>
+    <div class="head">
+      <div class="kicker">Die Mitte</div>
+      <h2>Was in der Mitte sitzt.</h2>
+      <p class="section-lede">In der Mitte des Kreises sitzt die Betriebsschicht. Sie macht sichtbar, wer wann was tut. Sie erinnert. Sie zeigt, wer zu wem passt. Sie führt die Dokumentation. Sie nimmt den Papierberg weg.</p>
+      <p class="section-lede" style="margin-top:-14px">Sie ist nicht der Kreis. Sie ist das Werkzeug, das dem Kreis dient.</p>
+    </div>
+    <div class="hero-cta">
+      <a class="pill lg" href="/demo/">Demo öffnen →</a>
+      <a class="link-arrow" href="/#uebergabe">Worum es hier geht</a>
     </div>
   </div>
 </section>
 
-</main>
+<footer>
+  <div class="wrap foot-bottom" style="margin-top:0;border-top:0">
+    <span>Kollektiv Lichtung e.V. · Entwurf für Vision Gesundheit</span>
+    <span><a href="/">Zur Übersicht</a> · <a href="/recht/">Recht</a></span>
+  </div>
+</footer>
 
+<script src="/site.js" defer></script>
 </body>
 </html>

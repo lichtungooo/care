@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo — Pflegegemeinschaft Lohre · care</title>
+<meta name="description" content="Ein erfundener Pflege-Pool als Anschauung: 22 Bewohner, 13 im Team, 47 Ehrenamtliche. Karte, Woche, Marktplatz und Wirkung.">
+<link rel="icon" href="/branding/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/site.css">
+<link rel="stylesheet" href="/demo/demo.css">
+<script>
+  try {
+    var w = localStorage.getItem("care-theme")
+    if (w === "dark" || w === "light") document.documentElement.dataset.theme = w
+  } catch (e) {}
+</script>
+</head>
+
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol viewBox="0 0 150 150" id="signet"><path style="fill:var(--gruen,#4A6B5A)" d="M 68 8 A 67 67 0 0 0 68 142 L 68 99 A 24 24 0 0 1 68 51 Z"></path><path style="fill:var(--gold,#C08B5C)" d="M 82 8 A 67 67 0 0 1 82 142 L 82 99 A 24 24 0 0 0 82 51 Z"></path><circle style="fill:var(--gold,#C08B5C)" cx="75" cy="75" r="14"></circle></symbol>
+    <symbol viewBox="0 0 24 24" id="i-pfeil-links" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="i-info" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4M12 8h.01"></path></symbol>
+    <symbol viewBox="0 0 24 24" id="i-schloss" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></symbol>
+  </defs>
+</svg>
+
+<div class="demo-kopf">
+  <div class="wrap demo-kopf-inner">
+    <a class="demo-zurueck" href="/"><svg><use href="#i-pfeil-links"></use></svg> zurück</a>
+    <div class="demo-titel">Pflegegemeinschaft Lohre<small>Schwalm-Eder · 22 Bewohner · erfundenes Beispiel</small></div>
+    <div class="brille">
+      <span class="brille-label">Ich sehe als</span>
+      <select id="brille" aria-label="Rolle wählen">
+        <option value="bewohner">Bewohnerin</option>
+        <option value="angehoerige">Angehörige</option>
+        <option value="pflege" selected>Pflegekraft</option>
+        <option value="ehrenamt">Ehrenamtliche</option>
+        <option value="traeger">Träger</option>
+      </select>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="reiter" role="tablist">
+      <button role="tab" aria-selected="true" data-blatt="karte">Karte</button>
+      <button role="tab" aria-selected="false" data-blatt="menschen">Menschen</button>
+      <button role="tab" aria-selected="false" data-blatt="woche">Woche</button>
+      <button role="tab" aria-selected="false" data-blatt="markt">Marktplatz</button>
+      <button role="tab" aria-selected="false" data-blatt="wirkung">Wirkung</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- Karte -->
+  <section class="blatt" data-blatt="karte" data-aktiv="true">
+    <div class="hinweis">
+      <svg><use href="#i-info"></use></svg>
+      <div><b>Alles hier ist erfunden.</b> Die Pflegegemeinschaft Lohre gibt es nicht, die Menschen auch nicht. Die Karte zeigt, wie ein Pool und sein Umkreis aussehen könnten: wer wo wohnt, wer wo arbeitet, wo gerade etwas gebraucht wird.</div>
+    </div>
+    <div class="karte-filter" id="karte-filter"></div>
+    <div class="karte-huelle">
+      <div>
+        <div class="karte" id="karte">
+          <svg class="grund" viewBox="0 0 800 600" preserveAspectRatio="none" aria-hidden="true">
+            <path class="land" d="M0 380c120-60 180-30 300-70s110-120 200-140 180 40 300 10v420H0z"></path>
+            <path class="land" d="M0 60c90 40 190 10 280 60s70 110 180 120 180-60 340-30V0H0z" opacity=".5"></path>
+            <path class="fluss" d="M-20 340c140-20 220 60 340 40s200-80 320-50 200 60 180 50"></path>
+            <path class="weg" d="M60 480c150-40 220-120 340-140s260 40 400 10"></path>
+            <path class="weg" d="M380 40c-20 140 40 230 20 340s-60 180-40 200"></path>
+          </svg>
+        </div>
+        <p class="karte-legende">Klick auf einen Pin öffnet den Eintrag. Die Filter blenden Rollen ein und aus. Rote Kreise sind offene Bedarfe.</p>
+      </div>
+      <div id="karte-item"><div class="item"><div class="item-leer">Wählen Sie einen Pin auf der Karte.<br>Jeder Eintrag folgt derselben Anatomie:<br>Kopf, Beziehungen, Aktion, Inhalt, Tags.</div></div></div>
+    </div>
+  </section>
+
+  <!-- Menschen -->
+  <section class="blatt" data-blatt="menschen">
+    <h2 class="ueberschrift">Wer zu diesem Pool gehört</h2>
+    <p class="unterzeile">22 Bewohner, 22 Angehörige, 13 im Team, 47 Ehrenamtliche und die Menschen aus Therapie und Medizin. Ausgearbeitet sind die, die den Alltag hier tragen. Klick öffnet den Eintrag.</p>
+    <div class="karte-filter" id="menschen-filter"></div>
+    <div class="menschen" id="menschen-liste"></div>
+    <div id="menschen-item" style="margin-top:24px;max-width:420px"></div>
+  </section>
+
+  <!-- Woche -->
+  <section class="blatt" data-blatt="woche">
+    <h2 class="ueberschrift">Eine Woche im Pool</h2>
+    <p class="unterzeile">34 Termine, davon 12 von Ehrenamtlichen getragen. Pflege, Therapie, Mahlzeiten, Aktivitäten und Besuch liegen in derselben Zeitachse. Jede Rolle sieht daraus ihren eigenen Ausschnitt.</p>
+    <div class="woche" id="woche"></div>
+  </section>
+
+  <!-- Marktplatz -->
+  <section class="blatt" data-blatt="markt">
+    <h2 class="ueberschrift">Was gerade gebraucht wird</h2>
+    <p class="unterzeile">Fünf offene Bedarfe. Zu jedem schlägt der Pool drei Menschen vor und begründet jeden einzeln. Erst wer schon zum Kreis gehört, dann die Nachbarschaft. Die Präsenzkraft oder der Bewohner wählt.</p>
+    <div class="bedarfe" id="bedarfe"></div>
+  </section>
+
+  <!-- Wirkung -->
+  <section class="blatt" data-blatt="wirkung">
+    <h2 class="ueberschrift">Was diese Woche geschah</h2>
+    <p class="unterzeile">Aus Terminen, Notizen und Bestätigungen entsteht eine Erzählung. Keine Noten, keine Sterne, keine Bewertung von Menschen. Nur das, was war.</p>
+    <p class="wirkung-text" id="wirkung-text"></p>
+    <h3 class="ueberschrift" style="font-size:17px;margin-bottom:14px">Zahlen im September</h3>
+    <div class="zahlen" id="zahlen"></div>
+    <h3 class="ueberschrift" style="font-size:17px;margin-bottom:14px">Momente</h3>
+    <div class="momente" id="momente"></div>
+  </section>
+
+</main>
+
+<footer style="border-top:1px solid var(--line);background:var(--or1);padding:36px 0 30px;margin-top:40px">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-size:13.5px;color:var(--muted)">
+    <span>Ein Entwurf des Kollektiv Lichtung e.V. für Vision Gesundheit. Alle Menschen sind erfunden.</span>
+    <span><a href="/" style="color:var(--accent)">Zur Übersicht</a> · <a href="/recht/" style="color:var(--accent)">Recht</a></span>
+  </div>
+</footer>
+
+<script src="/demo/daten.js"></script>
+<script src="/demo/demo.js"></script>
+</body>
+</html>
